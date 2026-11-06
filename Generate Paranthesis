@@ -1,0 +1,19 @@
+Approach is -> 
+class Solution {
+    static List<String>result;
+    public List<String> generateParenthesis(int n) {
+        result=new ArrayList<>();
+        rec(new StringBuilder(),n,n);
+        return result;
+    }public static void rec(StringBuilder s,int start,int end){
+        if (start < 0 || end < start) return;
+        if(start==0&&end==0){
+           result.add(s.toString());
+        }
+        if(start>0)
+        {rec(s.append('('),start-1,end);
+        s.deleteCharAt(s.length() - 1);}
+        if(end>0)  {rec(s.append(')'),start,end-1);
+        s.deleteCharAt(s.length() - 1);}
+    }
+}
